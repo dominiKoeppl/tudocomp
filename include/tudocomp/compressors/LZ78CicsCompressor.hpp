@@ -251,6 +251,10 @@ public:
 		        ev.incr(v);
 		        ++x;
 	        } while(ell != st.smallest_leaf());
+        IF_STATS(
+		StatPhase::log("factor_count", x);
+        )
+
         });
     }
 
