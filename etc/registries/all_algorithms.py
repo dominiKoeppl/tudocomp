@@ -289,7 +289,7 @@ tdc.decompressors = [
     AlgorithmConfig(name="LCPDecompressor", header="decompressors/LCPDecompressor.hpp", sub=[lzss_coders, lcpcomp_dec]),
     AlgorithmConfig(name="lfs::LFSDecompressor", header="decompressors/LFSDecompressor.hpp", sub=[coding_strat]),
     AlgorithmConfig(name="lfs::LFS2Decompressor", header="decompressors/LFS2Decompressor.hpp", sub=[lit_coder, len_coder]),
-    AlgorithmConfig(name="LZ78Decompressor", header="decompressors/LZSSDecompressor.hpp", sub=[universal_coders]),
+    AlgorithmConfig(name="LZ78Decompressor", header="decompressors/LZ78Decompressor.hpp", sub=[universal_coders]),
     AlgorithmConfig(name="LZSSDecompressor", header="decompressors/LZSSDecompressor.hpp", sub=[lzss_coders]),
     AlgorithmConfig(name="LZWDecompressor", header="decompressors/LZWDecompressor.hpp", sub=[universal_coders]),
     AlgorithmConfig(name="WrapDecompressor", header="decompressors/WrapDecompressor.hpp"),

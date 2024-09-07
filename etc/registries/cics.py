@@ -132,16 +132,16 @@ compact_hashmap_strategies = [
 
 # LZ78 tries ("lz78trie")
 lz78_trie = [
-    AlgorithmConfig(name="lz78::BinarySortedTrie", header="compressors/lz78/BinarySortedTrie.hpp"),
-    AlgorithmConfig(name="lz78::BinaryTrie", header="compressors/lz78/BinaryTrie.hpp"),
-    AlgorithmConfig(name="lz78::CedarTrie", header="compressors/lz78/CedarTrie.hpp"),
-    AlgorithmConfig(name="lz78::ExtHashTrie", header="compressors/lz78/ExtHashTrie.hpp"),
-    AlgorithmConfig(name="lz78::HashTrie", header="compressors/lz78/HashTrie.hpp", sub=[hash_function,hash_prober,hash_manager]),
-    AlgorithmConfig(name="lz78::HashTriePlus", header="compressors/lz78/HashTriePlus.hpp", sub=[hash_function,hash_manager]),
-    AlgorithmConfig(name="lz78::RollingTrie", header="compressors/lz78/RollingTrie.hpp", sub=[hash_roll, hash_prober,hash_manager,hash_function]),
-    AlgorithmConfig(name="lz78::RollingTriePlus", header="compressors/lz78/RollingTriePlus.hpp", sub=[hash_roll, hash_manager,hash_function]),
+    # AlgorithmConfig(name="lz78::BinarySortedTrie", header="compressors/lz78/BinarySortedTrie.hpp"),
+    # AlgorithmConfig(name="lz78::BinaryTrie", header="compressors/lz78/BinaryTrie.hpp"),
+    # AlgorithmConfig(name="lz78::CedarTrie", header="compressors/lz78/CedarTrie.hpp"),
+    # AlgorithmConfig(name="lz78::ExtHashTrie", header="compressors/lz78/ExtHashTrie.hpp"),
+    # AlgorithmConfig(name="lz78::HashTrie", header="compressors/lz78/HashTrie.hpp", sub=[hash_function,hash_prober,hash_manager]),
+    # AlgorithmConfig(name="lz78::HashTriePlus", header="compressors/lz78/HashTriePlus.hpp", sub=[hash_function,hash_manager]),
+    # AlgorithmConfig(name="lz78::RollingTrie", header="compressors/lz78/RollingTrie.hpp", sub=[hash_roll, hash_prober,hash_manager,hash_function]),
+    # AlgorithmConfig(name="lz78::RollingTriePlus", header="compressors/lz78/RollingTriePlus.hpp", sub=[hash_roll, hash_manager,hash_function]),
     AlgorithmConfig(name="lz78::TernaryTrie", header="compressors/lz78/TernaryTrie.hpp"),
-    AlgorithmConfig(name="lz78::CompactHashTrie", header="compressors/lz78/CompactHashTrie.hpp", sub=[compact_hashmap_strategies]),
+    # AlgorithmConfig(name="lz78::CompactHashTrie", header="compressors/lz78/CompactHashTrie.hpp", sub=[compact_hashmap_strategies]),
 ]
 
 if config_match("^#define JUDY_H_AVAILABLE 1"): # if the Judy trie is available
@@ -258,7 +258,7 @@ tdc.compressors = [
     # AlgorithmConfig(name="LCPCompressor", header="compressors/LCPCompressor.hpp", sub=[lzss_coders, lcpcomp_comp, lcpcomp_dec, lcpcomp_textds]),
     # AlgorithmConfig(name="RunLengthEncoder", header="compressors/RunLengthEncoder.hpp"),
     # AlgorithmConfig(name="LiteralEncoder", header="compressors/LiteralEncoder.hpp", sub=[all_coders]),
-    # AlgorithmConfig(name="LZ78Compressor", header="compressors/LZ78Compressor.hpp", sub=[universal_coders, lz78_trie]),
+    AlgorithmConfig(name="LZ78Compressor", header="compressors/LZ78Compressor.hpp", sub=[universal_coders, lz78_trie]),
     # AlgorithmConfig(name="LZ78UCompressor", header="compressors/LZ78UCompressor.hpp", sub=[lz78u_comp, universal_coders]),
     # AlgorithmConfig(name="LZWCompressor", header="compressors/LZWCompressor.hpp", sub=[universal_coders, lz78_trie]),
     # AlgorithmConfig(name="RePairCompressor", header="compressors/RePairCompressor.hpp", sub=[non_consuming_coders]),
@@ -275,6 +275,22 @@ tdc.compressors = [
     # AlgorithmConfig(name="lfs::LFS2Compressor", header="compressors/lfs/LFS2Compressor.hpp", sub=[lit_coder, len_coder]),
     # AlgorithmConfig(name="lfs::LFS2BSTCompressor", header="compressors/lfs/LFS2BSTCompressor.hpp", sub=[lit_coder, len_coder]),
 ]
+
+##### Export available decompressors #####
+tdc.decompressors = [
+    # AlgorithmConfig(name="BWTDecompressor", header="decompressors/BWTDecompressor.hpp",),
+    # AlgorithmConfig(name="ChainDecompressor", header="decompressors/ChainDecompressor.hpp",),
+    # AlgorithmConfig(name="DividingDecompressor", header="decompressors/DividingDecompressor.hpp"),
+    # AlgorithmConfig(name="ESPDecompressor", header="decompressors/ESPDecompressor.hpp", sub=[slp_coder]),
+    # AlgorithmConfig(name="LCPDecompressor", header="decompressors/LCPDecompressor.hpp", sub=[lzss_coders, lcpcomp_dec]),
+    # AlgorithmConfig(name="lfs::LFSDecompressor", header="decompressors/LFSDecompressor.hpp", sub=[coding_strat]),
+    # AlgorithmConfig(name="lfs::LFS2Decompressor", header="decompressors/LFS2Decompressor.hpp", sub=[lit_coder, len_coder]),
+    AlgorithmConfig(name="LZ78Decompressor", header="decompressors/LZ78Decompressor.hpp", sub=[universal_coders]),
+    # AlgorithmConfig(name="LZSSDecompressor", header="decompressors/LZSSDecompressor.hpp", sub=[lzss_coders]),
+    # AlgorithmConfig(name="LZWDecompressor", header="decompressors/LZWDecompressor.hpp", sub=[universal_coders]),
+    # AlgorithmConfig(name="WrapDecompressor", header="decompressors/WrapDecompressor.hpp"),
+]
+
 
 ##### Export available string generators #####
 tdc.generators = [
