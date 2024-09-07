@@ -36,7 +36,7 @@ function(find_or_download_package package package_found_prefix target_name)
         # Detect wether this is a shared or a static library
         # NB: This might not work on windows
         get_filename_component(LIB_EXT ${sublib} EXT)
-        if(${LIB_EXT} STREQUAL ${CMAKE_STATIC_LIBRARY_SUFFIX})
+        if(LIB_EXT STREQUAL CMAKE_STATIC_LIBRARY_SUFFIX)
             add_library(${sublib_target} IMPORTED STATIC GLOBAL)
         else()
             add_library(${sublib_target} IMPORTED SHARED GLOBAL)

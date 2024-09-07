@@ -13,10 +13,10 @@ namespace lzcics {
 
 using namespace sdsl;
 
-//typedef cst_sada_light<csa_sada_light<>, bp_support_sadaM<>> cst_t;
+typedef cst_sada_light<csa_sada_light<>, bp_support_sadaM<>> cst_t;
 // typedef cst_sada<sdsl::csa_sada<sdsl::enc_vector<sdsl::coder::elias_gamma,4>>> cst_t;
 
-typedef cst_sada<> cst_t;
+//typedef cst_sada<> cst_t;
 
 /**
  * This is a wrapper class around the sdsl-lite library to get a easier translation between

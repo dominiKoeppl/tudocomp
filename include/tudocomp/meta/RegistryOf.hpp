@@ -150,7 +150,7 @@ public:
         }
 
         inline const Config& config() const {
-            return m_cfg.decl();
+            return m_cfg;
         }
 
         inline Selection select() const {
